@@ -12,7 +12,7 @@ const Home = () => (
         <hr className="my-4" />
         <Link
           to="/recipes"
-          className="btn btn-lg custom-buttom"
+          className="btn btn-lg custom-button"
           role="button">
           View Recipes
         </Link>
