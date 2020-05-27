@@ -5,7 +5,7 @@ class Recipe extends React.Component {
 
     constructor(props) {
         super(props);
-        
+
         this.state = {
             recipe: {
                 ingredients: ""
@@ -26,7 +26,7 @@ class Recipe extends React.Component {
 
         fetch(url)
             .then(response => {
-                if(response.ok){
+                if (response.ok) {
                     return response.json();
                 }
 
@@ -34,6 +34,10 @@ class Recipe extends React.Component {
             })
             .then(response => this.setState({ recipe: response }))
             .catch(() => this.props.history.push("/recipes"));
+    }
+
+    addHtmlEntities(str) {
+        return String(str).replace(/&lt;/g, "<").replace(/&gt;/g, ">");
     }
 }
 
