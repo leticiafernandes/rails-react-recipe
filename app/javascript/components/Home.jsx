@@ -11,10 +11,9 @@ const Home = () => (
         </p>
         <hr className="my-4" />
         <Link
-          to="/recipes">
+          to="/recipes"
           className="btn btn-lg custom-buttom"
-          role="button"
-        >
+          role="button">
           View Recipes
         </Link>
       </div>
