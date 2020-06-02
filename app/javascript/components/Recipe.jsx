@@ -65,6 +65,13 @@ class Recipe extends React.Component {
 
     render() {
         const { recipe } = this.state;
+
+        const {
+            match: {
+                params: { id }
+            }
+        } = this.props;
+
         let ingredientList = "No ingredients available";
 
         if (recipe.ingredients.length > 0) {
@@ -105,11 +112,17 @@ class Recipe extends React.Component {
                             </div>
                         </div>
                         <div className="col-sm-12 col-lg-2">
-                            <button 
+                        <button 
                                 type="button" 
                                 className="btn btn-danger"
                                 onClick={this.deleteRecipe}>
                                 Delete Recipe
+                            </button>
+                            <button 
+                                type="button" 
+                                className="btn btn-info mt-3"
+                                onClick={() => this.props.history.push(`/recipe/${id}/edit`)}>
+                                Edit Recipe
                             </button>
                         </div>
                     </div>
