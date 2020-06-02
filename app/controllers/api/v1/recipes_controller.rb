@@ -15,15 +15,15 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def show
-    if find_recipe
-      render json: @recipe
+    if recipe
+      render json: recipe
     else
-      render json: @recipe.errors
+      render json: recipe.errors
     end
   end
 
   def destroy
-    @recipe&.destroy
+    recipe&.destroy
     render json: { message: 'Recipe deleted!' }
   end
 
@@ -33,7 +33,7 @@ class Api::V1::RecipesController < ApplicationController
     params.permit(:name, :ingredients, :instruction, :image)
   end
 
-  def find_recipe
+  def recipe
     @recipe ||= Recipe.find(params[:id])
   end
 end
