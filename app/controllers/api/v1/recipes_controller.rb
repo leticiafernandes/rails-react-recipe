@@ -27,6 +27,18 @@ class Api::V1::RecipesController < ApplicationController
     render json: { message: 'Recipe deleted!' }
   end
 
+  def update
+    recipe = Recipe.find(params[:id])
+    
+    recipe.update!(recipe_params)
+
+    if recipe
+      render json: recipe
+    else
+      render json: recipe.errors
+    end
+  end
+
   private
    
   def recipe_params
